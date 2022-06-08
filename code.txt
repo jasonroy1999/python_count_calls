@@ -1,0 +1,17 @@
+def count(func):
+    def helper(*args):
+        helper.calls += 1
+        print(helper.calls)
+        return func(*args)
+
+    helper.calls = 0
+    return helper
+
+@count
+def incr(x):
+    return x + 1
+incr(0)
+incr(1)
+incr(2)
+incr(5)
+print("Number of function calls are:", incr.calls)
